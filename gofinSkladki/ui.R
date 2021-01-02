@@ -10,22 +10,18 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("selection", "Wybierz ksztalt:",
                   choices = shapes),
-      actionButton("update", "Generuj"),
       hr(),
       sliderInput("freq",
                   "Czestosc wystepowania:",
-                  min = 1,  max = 50, value = 15),
+                  min = 1,  max = 50, value = 5),
       sliderInput("size",
                   "Rozmiar:",
-                  min = 0.1,  max = 1, value = 0.5),
-      sliderInput("max",
-                  "Maksymalna ilosc slow:",
-                  min = 1,  max = 300,  value = 100)
+                  min = 0.1,  max = 1, value = 0.3)
     ),
     
     # Show Word Cloud
     mainPanel(
-      plotOutput("plot")
+      wordcloud2Output('cloud')
     )
   )
 )

@@ -7,11 +7,11 @@ library(wordcloud2);
 library(stringi);
 library(solrium);
 
-shapes<<- list("PIECIOKAT" = "pentagon",
-              "KOLO" = "circle",
-              "TROJKAT" = "triangle",
-              "DIAMENT"= "diamond",
-              "GWIAZDA"="star");
+shapes<<- list("Circle" = "circle",
+              "Diamond"= "diamond",
+              "Pentagon" = "pentagon",
+              "Star"="star",
+              "Triangle" = "triangle");
 
 polaczenie <- SolrClient$new(host="127.0.0.1", port = 8983, path="/solr/rdzen1/select");
 aktualnosci<-tidyfeed(feed = "http://www.rss.gofin.pl/zasilki.xml");
