@@ -21,8 +21,8 @@ ui <- fluidPage(
     
     # Show Word Cloud
     mainPanel(
-      wordcloud2Output('cloud')
+      wordcloud2Output('cloud'),
+      plotOutput('cluster')
     )
   )
 )
-
