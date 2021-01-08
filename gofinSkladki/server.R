@@ -73,7 +73,7 @@ function(input, output){
   
   #klasteryzacja
   
-  tabela<-DocumentTermMatrix(dokumenty, control=list(weighting=weightTfIdf));
+  tabela<-DocumentTermMatrix(dokumenty, control=list(weighting=weightBin));
   
   
   #--------------------------------------------------------------------
