@@ -1,5 +1,11 @@
 library(shiny)
 
+shapes<- list("Circle" = "circle",
+              "Diamond"= "diamond",
+              "Pentagon" = "pentagon",
+              "Star"="star",
+              "Triangle" = "triangle");
+
 # Define UI for displaying current time ----
 ui <- fluidPage(
   # Application title
@@ -21,8 +27,7 @@ ui <- fluidPage(
     
     # Show Word Cloud
     mainPanel(
-      wordcloud2Output('cloud'),
-      plotOutput('cluster')
+      wordcloud2Output('cloud')
     )
   )
 )

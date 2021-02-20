@@ -9,11 +9,7 @@ library(solrium);
 library(dbscan);
 library(cluster);
 
-shapes<<- list("Circle" = "circle",
-               "Diamond"= "diamond",
-               "Pentagon" = "pentagon",
-               "Star"="star",
-               "Triangle" = "triangle");
+
 
 lematyzacja<-function(tekst)
 {
@@ -69,51 +65,5 @@ function(input, output){
     
     wordcloud2(d, size=input$size, shape = input$selection, minSize = input$freq);
   })
-  
-  
-  #klasteryzacja
-  
-  tabela<-DocumentTermMatrix(dokumenty, control=list(weighting=weightBin));
-  
-  
-  #--------------------------------------------------------------------
-  
-  klasteryzacja.i<-kmeans(tabela, centers=2, iter.max=100);
-  
-  klastry.i<-klasteryzacja.i$cluster;
-  
-  tabela.wynikowa.i<-cbind(tabela, klastry.i);
-  
-  klasteryzacja.i$centers
-  
-  klasteryzacja.i$size
-  
-  #--------------------------------------------------------------------
-  
-  klasteryzacja.h<-agnes(tabela, metric="euclidean", method="average");
-  
-  klastry.h<-cutree(klasteryzacja.h, k=2);
-  
-  tabela.wynikowa.h<-cbind(tabela, klastry.h);
-  
-  output$cluster<-renderPlot({
-    plot(klasteryzacja.h, which.plots=2);
-  })
-  
-  #--------------------------------------------------------------------
-  
-  min.points<-10;
-  epsilon<-0.2;
-  
-  klasteryzacja.dbscan<-dbscan(tabela, eps=epsilon, minPts=min.points);
-  klastry.db<-klasteryzacja.dbscan$cluster;
-  
-  tabela.wynikowa.db<-cbind(tabela, klastry.db);
-  
-  #--------------------------------------------------------------------
-  
-  
-  tabela.wynikowa.<-cbind(tabela, klastry.i, klastry.h, klastry.db);
-  
   
 }
